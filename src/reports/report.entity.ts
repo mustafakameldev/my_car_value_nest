@@ -1,3 +1,4 @@
+import { IsBoolean } from 'class-validator';
 import { User } from 'src/users/users.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 @Entity()
@@ -20,4 +21,6 @@ export class Report {
   mileage: number;
   @ManyToOne(() => User, (user) => user.reports)
   user: User;
+  @Column({ default: false })
+  approved: boolean;
 }
