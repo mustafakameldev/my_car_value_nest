@@ -41,8 +41,8 @@ export class ReportsController {
   approveReport(@Param('id') id: string, @Body() body: ApproveReportDto) {
     return this.reportService.changeApproval(id, body.approved);
   }
-  @Get('/estimate')
+  @Get()
   getEstimate(@Query() query: GetEstimateDto) {
-    console.log('sdfsdf', query);
+    return this.reportService.createEstimate(query);
   }
 }
